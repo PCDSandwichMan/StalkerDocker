@@ -2,6 +2,7 @@ const express = require('express');
 const exphbs = require('express-handlebars');
 const mongoose = require('mongoose');
 const config = require('./config');
+const path = require('path');
 
 const app = express();
 
@@ -10,8 +11,14 @@ const indexRouter = require('./routes');
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.engine('handlebars', exphbs());
+app.engine('handlebars', exphbs({
+  defaultLayout: 'main', 
+  extname: '.handlebars',
+  layoutsDir:'views/layouts',
+  partialsDir:'views/partials'
+}));
 app.set('view engine', 'handlebars');
+app.set('views', path.join(__dirname, 'views'));
 app.use(express.static('public'));
 
 mongoose.connect(config.MONGODB_URI, { useNewUrlParser: true });
