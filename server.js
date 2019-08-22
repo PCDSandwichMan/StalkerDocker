@@ -7,6 +7,7 @@ const path = require('path');
 const app = express();
 
 const indexRouter = require('./routes');
+const victimsRouter = require('./routes/victims');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -18,6 +19,7 @@ app.use(express.static('public'));
 mongoose.connect(config.MONGODB_URI, { useNewUrlParser: true });
 
 app.use('/', indexRouter);
+app.use('/victims', victimsRouter);
 
 app.listen(config.PORT);
 
