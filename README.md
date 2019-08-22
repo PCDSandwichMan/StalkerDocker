@@ -1,2 +1,2 @@
-# StockerDocker
-this is an api that utilizes the express framework, handlebar template engine, and mongodb to create a crude api with an interactive UI
+# StalkerDocker
+this is an API that utilizes the express framework, handlebar template engine, and MongoDB to create a crude API with an interactive UI
