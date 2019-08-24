@@ -1,1 +1,15 @@
-<h1>All Victims</h1>
+<h1>Search Victims</h1>
+<form action="/victims" method="GET">
+    <label for="name">Name</label>
+    <input type="text" name='name' value= {{ searchOptions }}>
+    <button type="submit">Search</button>
+</form>
+<br>
+<div>
+    {{> error}}
+    {{#each victims}}
+        <div>
+            {{this.name}}
+        </div>
+    {{/each}}
+</div>
